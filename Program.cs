@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Formats.Asn1;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.XPath;
 
 namespace NoviceChallenges
 {
@@ -7,19 +10,47 @@ namespace NoviceChallenges
         static void Main(string[] args)
         {
             // Use the Main method to test your functions.
+            Console.WriteLine("Add");
+            Console.WriteLine(Add(2 , 4));
+
+            Console.WriteLine("Is Even");
+            Console.WriteLine(IsEven(3));
+
+            Console.WriteLine("Max Of Three");
+            Console.WriteLine(MaxOfThree(3, 5, 6));
+
+            Console.WriteLine("String Length");
+            Console.WriteLine(StringLength("Hello"));
+
+            Console.WriteLine("Starts Hello");
+            Console.WriteLine(StartsHello("HI"));
+
+            Console.WriteLine("Reverse String");
+            Console.WriteLine(ReverseString("YOOO"));
+
+            Console.WriteLine("Factorial");
+            Console.WriteLine(Factorial(5));
+
+            Console.WriteLine("FIB");
+            Console.WriteLine(Fibonacci(15));
+
+
         }
 
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
-            // TODO: Implement this method.
-            return 0;
+            int answer = a + b;
+            return answer;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
-            // TODO: Implement this method.
+            if(number % 2 == 0)
+            {
+               return true;
+            }
             return false;
         }
 
@@ -28,14 +59,16 @@ namespace NoviceChallenges
         {
             // HINT: You might want to use Math.Max function.
             // TODO: Implement this method.
-            return 0;
+            int MaxNumber = Math.Max(a, Math.Max(b,c));
+            return MaxNumber;
         }
 
         // 4. Return the length of the given string.
         public static int StringLength(string s)
         {
+            return s.Length;
             // TODO: Implement this method.
-            return 0;
+           
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
@@ -43,6 +76,10 @@ namespace NoviceChallenges
         {
             // HINT: Use the string method "StartsWith".
             // TODO: Implement this method.
+            if(s == "Hello")
+            {
+            return true;
+            }
             return false;
         }
 
@@ -50,16 +87,24 @@ namespace NoviceChallenges
         public static string ReverseString(string s)
         {
             char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
             // TODO: Reverse the charArray.
             return new string(charArray);
         }
 
-        // 7. Return the factorial of a number.
+        
         public static int Factorial(int n)
         {
-            if (n == 0) return 1;
+           if (n == 0) return 1;
+            
+
+            for(int i = n-1; i > 0; i--)
+            {
+               n *= i;
+            }
+            return n;
             // TODO: Calculate the factorial.
-            return 0;
+            ;
         }
 
         // 8. Check if a number is a prime number.
@@ -77,9 +122,20 @@ namespace NoviceChallenges
         // 9. Return the nth Fibonacci number.
         public static int Fibonacci(int n)
         {
+            int firstnumber = 0, secondnumber = 1, result = 0;
             if (n <= 1) return n;
+            for (int i =2; i <= n; i++)
+            {
+                result = firstnumber + secondnumber;
+                firstnumber = secondnumber;
+                secondnumber = result;
+            }
+                return result;
+
+
+
             // TODO: Calculate the nth Fibonacci number.
-            return 0;
+            
         }
 
         // 10. Given an array of integers, return the largest number.
