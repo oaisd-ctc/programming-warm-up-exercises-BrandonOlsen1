@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Formats.Asn1;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.XPath;
 
@@ -33,6 +35,32 @@ namespace NoviceChallenges
 
             Console.WriteLine("FIB");
             Console.WriteLine(Fibonacci(15));
+
+            Console.WriteLine("Largest In Array");
+            int [] number = {5, 6, 9, 12, 22, 21, 13};   
+            Console.WriteLine(LargestInArray(number));
+
+            Console.WriteLine("Palindrome");
+            Console.WriteLine(IsPalindrome("noo"));
+
+            Console.WriteLine("ArraySum");
+            int [] sumss = {2, 5, 6, 6, 19, 7, 12};
+            Console.WriteLine(ArraySum(sumss));
+
+            Console.WriteLine("Number Of Letters");
+            String st = "HEEEEEEY";
+             char ch = 'E';
+            Console.WriteLine(CharCount(st, ch));
+
+            Console.WriteLine("ConcatenateStrings");
+            string String1 = "Hello";
+            string String2 = "Everyone";
+            Console.WriteLine(ConcatenateStrings(String1, String2));
+
+            Console.WriteLine("SwapEnds");
+            String Word = "Baller";
+            Console.WriteLine(SwapEnds(Word));
+
 
 
         }
@@ -141,17 +169,30 @@ namespace NoviceChallenges
         // 10. Given an array of integers, return the largest number.
         public static int LargestInArray(int[] numbers)
         {
+            int answe = 0;
             int largest = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
+                 answe = numbers.Max();
                 // TODO: Find the largest number in the array.
             }
-            return largest;
+            
+            return answe;
         }
 
         // 11. Check if a string is a palindrome (reads the same forward and backward).
         public static bool IsPalindrome(string s)
         {
+            char[] cArray = s.ToCharArray();
+            string reverse = String.Empty;
+            for(int i = cArray.Length - 1; i > -1; i--)
+            {
+                reverse += cArray[i];
+            }
+            if (reverse == s)
+            {
+                return true;
+            }
             // TODO: Determine if the string is a palindrome.
             return false;
         }
@@ -159,7 +200,7 @@ namespace NoviceChallenges
         // 12. Given an array of integers, return the sum of its elements.
         public static int ArraySum(int[] numbers)
         {
-            int sum = 0;
+            int sum = numbers.Sum();
             // TODO: Calculate the sum of the array's elements.
             return sum;
         }
@@ -168,6 +209,14 @@ namespace NoviceChallenges
         public static int CharCount(string s, char c)
         {
             int count = 0;
+            char [] cArray = s.ToCharArray();
+            for (int i = 0; i <= cArray.Length -1; i++)
+            {
+                if(cArray[i] == c)
+                {
+                    count++;
+                }   
+            }
             // TODO: Count how many times character c appears in string s.
             return count;
         }
@@ -175,8 +224,9 @@ namespace NoviceChallenges
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
+            
             // TODO: Concatenate the two strings with a space in between.
-            return "";
+            return str1 + " " +  str2;
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.
@@ -185,8 +235,22 @@ namespace NoviceChallenges
             if (s.Length <= 1) return s;
             char firstChar = s[0];
             char lastChar = s[s.Length - 1];
+            string neword = String.Empty;
+
+
+            neword += lastChar;
+            
+
+            for(int i = 0; i < s.Length - 1 ; i++)
+            {
+                if(s[i] != s[0] && s[i] != s.Length -1)
+                {
+                    neword += s[i];
+                }
+            }
+            neword += firstChar;
             // TODO: Swap the first and last characters and return the modified string.
-            return "";
+            return neword;
         }
     }
 }
