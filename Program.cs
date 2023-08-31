@@ -33,6 +33,9 @@ namespace NoviceChallenges
             Console.WriteLine("Factorial");
             Console.WriteLine(Factorial(5));
 
+            Console.WriteLine("Is Prime");
+            Console.WriteLine(IsPrime(20));
+
             Console.WriteLine("FIB");
             Console.WriteLine(Fibonacci(15));
 
@@ -138,13 +141,13 @@ namespace NoviceChallenges
         // 8. Check if a number is a prime number.
         public static bool IsPrime(int number)
         {
-            if (number <= 1) return false;
-            for (int i = 2; i < number; i++)
+            if (number <= 1 || number == 0) return false;
+            for (int i = 2; i <= Math.Sqrt(number); i++)
             {
                 if (number % i == 0) return false;
             }
             // TODO: Return the correct boolean value.
-            return false;
+            return true;
         }
 
         // 9. Return the nth Fibonacci number.
