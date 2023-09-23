@@ -13,7 +13,7 @@ namespace NoviceChallenges
         {
             // Use the Main method to test your functions.
             Console.WriteLine("Add");
-            Console.WriteLine(Add(2 , 4));
+            Console.WriteLine(Add(2, 4));
 
             Console.WriteLine("Is Even");
             Console.WriteLine(IsEven(3));
@@ -40,19 +40,19 @@ namespace NoviceChallenges
             Console.WriteLine(Fibonacci(15));
 
             Console.WriteLine("Largest In Array");
-            int [] number = {5, 6, 9, 12, 22, 21, 13};   
+            int[] number = { 5, 6, 9, 12, 22, 21, 13 };
             Console.WriteLine(LargestInArray(number));
 
             Console.WriteLine("Palindrome");
             Console.WriteLine(IsPalindrome("noo"));
 
             Console.WriteLine("ArraySum");
-            int [] sumss = {2, 5, 6, 6, 19, 7, 12};
+            int[] sumss = { 2, 5, 6, 6, 19, 7, 12 };
             Console.WriteLine(ArraySum(sumss));
 
             Console.WriteLine("Number Of Letters");
             String st = "HEEEEEEY";
-             char ch = 'E';
+            char ch = 'E';
             Console.WriteLine(CharCount(st, ch));
 
             Console.WriteLine("ConcatenateStrings");
@@ -61,57 +61,45 @@ namespace NoviceChallenges
             Console.WriteLine(ConcatenateStrings(String1, String2));
 
             Console.WriteLine("SwapEnds");
-            String Word = "Baller";
+            string Word = "Baller";
             Console.WriteLine(SwapEnds(Word));
-
-
-
         }
 
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
-            int answer = a + b;
-            return answer;
+            return a + b;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
-            if(number % 2 == 0)
-            {
-               return true;
-            }
-            return false;
+            return number % 2 == 0;
         }
 
         // 3. Return the largest of three numbers.
         public static int MaxOfThree(int a, int b, int c)
         {
-            // HINT: You might want to use Math.Max function.
-            // TODO: Implement this method.
-            int MaxNumber = Math.Max(a, Math.Max(b,c));
-            return MaxNumber;
+            return Math.Max(a, Math.Max(b, c));
         }
 
         // 4. Return the length of the given string.
         public static int StringLength(string s)
         {
             return s.Length;
-            // TODO: Implement this method.
-           
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
         public static bool StartsHello(string s)
         {
-            // HINT: Use the string method "StartsWith".
-            // TODO: Implement this method.
-            if(s == "Hello")
+            if (s == "Hello")
             {
-            return true;
+                return true;
             }
             return false;
+            // Additional Answers:
+            return s == "Hello";
+            return s.ToLower().StartsWith("hello");
         }
 
         // 6. Reverse a given string.
@@ -119,23 +107,18 @@ namespace NoviceChallenges
         {
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);
-            // TODO: Reverse the charArray.
             return new string(charArray);
         }
 
-        
+
         public static int Factorial(int n)
         {
-           if (n == 0) return 1;
-            
-
-            for(int i = n-1; i > 0; i--)
+            if (n == 0) return 1;
+            for (int i = n - 1; i > 0; i--)
             {
-               n *= i;
+                n *= i;
             }
             return n;
-            // TODO: Calculate the factorial.
-            ;
         }
 
         // 8. Check if a number is a prime number.
@@ -146,7 +129,6 @@ namespace NoviceChallenges
             {
                 if (number % i == 0) return false;
             }
-            // TODO: Return the correct boolean value.
             return true;
         }
 
@@ -155,18 +137,13 @@ namespace NoviceChallenges
         {
             int firstnumber = 0, secondnumber = 1, result = 0;
             if (n <= 1) return n;
-            for (int i =2; i <= n; i++)
+            for (int i = 2; i <= n; i++)
             {
                 result = firstnumber + secondnumber;
                 firstnumber = secondnumber;
                 secondnumber = result;
             }
-                return result;
-
-
-
-            // TODO: Calculate the nth Fibonacci number.
-            
+            return result;
         }
 
         // 10. Given an array of integers, return the largest number.
@@ -176,10 +153,9 @@ namespace NoviceChallenges
             int largest = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
-                 answe = numbers.Max();
-                // TODO: Find the largest number in the array.
+                answe = numbers.Max();
             }
-            
+
             return answe;
         }
 
@@ -188,48 +164,38 @@ namespace NoviceChallenges
         {
             char[] cArray = s.ToCharArray();
             string reverse = String.Empty;
-            for(int i = cArray.Length - 1; i > -1; i--)
+            for (int i = cArray.Length - 1; i > -1; i--)
             {
                 reverse += cArray[i];
             }
-            if (reverse == s)
-            {
-                return true;
-            }
-            // TODO: Determine if the string is a palindrome.
-            return false;
+            return string.Equals(reverse, s);
         }
 
         // 12. Given an array of integers, return the sum of its elements.
         public static int ArraySum(int[] numbers)
         {
-            int sum = numbers.Sum();
-            // TODO: Calculate the sum of the array's elements.
-            return sum;
+            return numbers.Sum();
         }
 
         // 13. Given a string, count how many times a specified character appears in it.
         public static int CharCount(string s, char c)
         {
             int count = 0;
-            char [] cArray = s.ToCharArray();
-            for (int i = 0; i <= cArray.Length -1; i++)
+            char[] cArray = s.ToCharArray();
+            for (int i = 0; i <= cArray.Length - 1; i++)
             {
-                if(cArray[i] == c)
+                if (cArray[i] == c)
                 {
                     count++;
-                }   
+                }
             }
-            // TODO: Count how many times character c appears in string s.
             return count;
         }
 
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
-            
-            // TODO: Concatenate the two strings with a space in between.
-            return str1 + " " +  str2;
+            return str1 + " " + str2;
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.
@@ -240,19 +206,16 @@ namespace NoviceChallenges
             char lastChar = s[s.Length - 1];
             string neword = String.Empty;
 
-
             neword += lastChar;
-            
 
-            for(int i = 0; i < s.Length - 1 ; i++)
+            for (int i = 0; i < s.Length - 1; i++)
             {
-                if(s[i] != s[0] && s[i] != s.Length -1)
+                if (s[i] != s[0] && s[i] != s.Length - 1)
                 {
                     neword += s[i];
                 }
             }
             neword += firstChar;
-            // TODO: Swap the first and last characters and return the modified string.
             return neword;
         }
     }
